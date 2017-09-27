@@ -22,43 +22,26 @@
 	<br>
 	<div class="container">
 		<div class="row justify-content-md-center">
-			<div class="col-8">
+			<div class="col-6">
 				<div class="card text-center border-primary">
-					<div class="card-header text-white bg-primary"><h4>Login</h4></div>
+					<div class="card-header text-white bg-primary"><h4>Menu</h4></div>
 					<div class="card-body">
-						<form method="post" action="loginServlet">
-							<div class="form-group row">
-								<label for="inputEmail3" class="col-sm-2 col-form-label">Login</label>
-								<div class="col-10">
-									<input type="text" class="form-control" id="login" name="login"
-										placeholder="Login">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
-								<div class="col-10">
-									<input type="password" class="form-control" id="senha"
-										name="senha" placeholder="Senha">
-								</div>
-							</div>
-							<div class="form-group row">
-								<div class="col-12 align-self-end">
-									<button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
-								</div>
-							</div>
-
-							<%
+						<a href="inserir.jsp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Inserir Filme</a>
+						
+						<form method="post" action="exibirServlet">
+						<br>
+						<button type="submit" class="btn btn-secundary btn-lg ">Exibir Filmes</button>
+					</form>
+					</div>
+				</div>
+				<br>
+					<%
 								String mensagem = (String) session.getAttribute("mensagem");
 								if (mensagem != null) {
-									out.print("<div class='alert alert-danger' role='alert'><b>" + mensagem + "</b></div>");
+									out.print("<div class='alert alert-success' role='alert'><b>" + mensagem + "</b></div>");
 									session.setAttribute("mensagem", null);
 								}
 							%>
-
-
-						</form>
-					</div>
-				</div>
 			</div>
 
 		</div>

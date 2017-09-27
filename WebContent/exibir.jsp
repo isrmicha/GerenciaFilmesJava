@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
 <head>
@@ -15,6 +16,8 @@
 	crossorigin="anonymous">
 </head>
 <body>
+<%@ page import="java.util.HashSet" %>
+<%@ page import="pacote.Filme" %>
 
 	<div class="container">
 		</form>
@@ -22,52 +25,41 @@
 	<br>
 	<div class="container">
 		<div class="row justify-content-md-center">
-			<div class="col-8">
+			<div class="col-10">
 				<div class="card text-center border-primary">
-					<div class="card-header text-white bg-primary"><h4>Login</h4></div>
+					<div class="card-header text-white bg-primary">
+						<h4>Exibir Filmes</h4>
+					</div>
 					<div class="card-body">
-						<form method="post" action="loginServlet">
-							<div class="form-group row">
-								<label for="inputEmail3" class="col-sm-2 col-form-label">Login</label>
-								<div class="col-10">
-									<input type="text" class="form-control" id="login" name="login"
-										placeholder="Login">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
-								<div class="col-10">
-									<input type="password" class="form-control" id="senha"
-										name="senha" placeholder="Senha">
-								</div>
-							</div>
-							<div class="form-group row">
-								<div class="col-12 align-self-end">
-									<button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
-								</div>
-							</div>
-
-							<%
-								String mensagem = (String) session.getAttribute("mensagem");
-								if (mensagem != null) {
-									out.print("<div class='alert alert-danger' role='alert'><b>" + mensagem + "</b></div>");
-									session.setAttribute("mensagem", null);
-								}
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									
+									<th>Nome</th>
+									<th>Ano</th>
+									<th>Gênero</th>
+									<th>Sinopse</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%	
+								HashSet<Filme> filmes = new HashSet();
+								filmes = (HashSet<Filme>) session.getAttribute("filmes");
+									for(Filme filme:filmes){
+					out.print("<tr><td>"+filme.nome+"</td><td>"+filme.ano+"</td><td>"+filme.genero+"</td><td>"+filme.sinopse+"</td></tr>");
+									}
 							%>
-
-
-						</form>
+								
+							</tbody>
+						</table>
 					</div>
 				</div>
+				<br> <a href="menu.jsp"
+					class="btn btn-secondary btn-lg btn-block active" role="button"
+					aria-pressed="true">Voltar</a>
 			</div>
-
 		</div>
-
-
-
 	</div>
-
-
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

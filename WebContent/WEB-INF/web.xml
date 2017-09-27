@@ -11,9 +11,29 @@
   </welcome-file-list>
   <servlet>
     <description></description>
+    <display-name>exibirServlet</display-name>
+    <servlet-name>exibirServlet</servlet-name>
+    <servlet-class>pacote.exibirServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>exibirServlet</servlet-name>
+    <url-pattern>/exibirServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>inserirServlet</display-name>
+    <servlet-name>inserirServlet</servlet-name>
+    <servlet-class>pacote.inserirServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>inserirServlet</servlet-name>
+    <url-pattern>/inserirServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>loginServlet</display-name>
     <servlet-name>loginServlet</servlet-name>
-    <servlet-class>loginServlet</servlet-class>
+    <servlet-class>pacote.loginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>

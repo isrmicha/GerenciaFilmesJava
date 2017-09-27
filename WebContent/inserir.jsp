@@ -24,29 +24,48 @@
 		<div class="row justify-content-md-center">
 			<div class="col-8">
 				<div class="card text-center border-primary">
-					<div class="card-header text-white bg-primary"><h4>Login</h4></div>
+					<div class="card-header text-white bg-primary">
+						<h4>Inserir Filme</h4>
+					</div>
 					<div class="card-body">
-						<form method="post" action="loginServlet">
+						<form method="post" action="inserirServlet">
+							<%
+								session.setAttribute("acao", "inserir");
+							%>
 							<div class="form-group row">
-								<label for="inputEmail3" class="col-sm-2 col-form-label">Login</label>
+								<label for="inputEmail3" class="col-sm-2 col-form-label">Nome*</label>
 								<div class="col-10">
-									<input type="text" class="form-control" id="login" name="login"
-										placeholder="Login">
+									<input type="text" class="form-control" id="nomeFilme"
+										name="nome" placeholder="" required>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
+								<label for="inputEmail3" class="col-sm-2 col-form-label">Ano*</label>
 								<div class="col-10">
-									<input type="password" class="form-control" id="senha"
-										name="senha" placeholder="Senha">
+									<input type="text" class="form-control" id="anoFilme"
+										name="ano" placeholder="" required>
 								</div>
 							</div>
 							<div class="form-group row">
-								<div class="col-12 align-self-end">
-									<button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
+								<label for="inputEmail3" class="col-sm-2 col-form-label">Gênero*</label>
+								<div class="col-10">
+									<input type="text" class="form-control" id="generoFilme"
+										name="genero" placeholder="" required>
 								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlTextarea1">Sinopse*</label>
+								<textarea class="form-control" id="exampleFormControlTextarea1"
+									rows="3" name="sinopse" id="sinopseFilme" required></textarea>
 							</div>
 
+							<div class="form-group row">
+								<div class="col-12 align-self-end">
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+									
+								</div>
+							</div>
+								
 							<%
 								String mensagem = (String) session.getAttribute("mensagem");
 								if (mensagem != null) {
@@ -59,6 +78,9 @@
 						</form>
 					</div>
 				</div>
+				<br>
+									<a href="menu.jsp" class="btn btn-secondary btn-lg btn-block active" role="button" aria-pressed="true">Voltar</a>
+									
 			</div>
 
 		</div>

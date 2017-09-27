@@ -1,3 +1,4 @@
+package pacote;
 
 
 
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.ManipulaBD;
+
 
 /**
  * Servlet implementation class loginServlet
@@ -42,7 +43,7 @@ public class loginServlet extends HttpServlet {
 		String inputSenha = request.getParameter("senha");
 		ManipulaBD manipulaBD = new ManipulaBD();
 		if(manipulaBD.logar(inputLogin, inputSenha)){
-			
+			response.sendRedirect("menu.jsp");
 		}
 		else{
 			session.setAttribute("mensagem", "Login ou senha incorretos.");
