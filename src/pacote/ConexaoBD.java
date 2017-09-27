@@ -18,7 +18,7 @@ public class ConexaoBD {
 			String senha = "";		
 	        Class.forName("com.mysql.jdbc.Driver"); 
 	        con = (Connection) DriverManager.getConnection( database, usuario, senha );
-	        System.out.println("Conectou DB");
+
 	        
 		}
 	 catch ( Exception e ) {

@@ -43,15 +43,14 @@ public class ManipulaBD {
 			if (rs.next()) {
 			String tempLogin = rs.getString(1);
 			String tempSenha = rs.getString(2);
-			System.out.println(tempLogin);
-			System.out.println(tempSenha);
+
 			ps.close();
 			c.close();
 			a.fechaBd();
 			return true;
 			}
 			else{
-				System.out.println("Usuário não encontrado.");
+			
 				ps.close();
 				c.close();
 				a.fechaBd();
@@ -73,14 +72,14 @@ public class ManipulaBD {
 			ResultSet rs = null;
 			PreparedStatement ps = (PreparedStatement)	c.prepareStatement("SELECT * FROM filmes");
 			rs = ps.executeQuery();
-			System.out.println("Tentando Pegar Filme");
+	
 			
 				
 			while (rs.next()){
-				System.out.println("Tentando Pegar Filme");
+	
 			Filme filme = new Filme(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
 			arr.add(filme);
-			System.out.println("Pegou Filme");
+	
 			if(rs.isLast()){
 				ps.close();
 				c.close();
@@ -91,7 +90,7 @@ public class ManipulaBD {
 			
 			
 			
-				System.out.println("Banco zerado.");
+	
 				ps.close();
 				c.close();
 				a.fechaBd();
